@@ -1,0 +1,564 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\assets\\scripts\\savemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\savemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|c:\\users\\danie\\documents\\github\\spacegame\\space game\\assets\\scripts\\baseshipscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\baseshipscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\assets\\scripts\\shipcontrolsscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\shipcontrolsscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\assets\\scripts\\soundhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\soundhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\assets\\scripts\\tutorialhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tutorialhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\assets\\scripts\\topleveluihandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\topleveluihandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\assets\\scripts\\camerascript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\camerascript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\assets\\scripts\\leveluipanelhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\leveluipanelhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\assets\\scripts\\planetclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\planetclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\assets\\scripts\\levelloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\levelloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\assets\\scripts\\planetscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\planetscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\assets\\scripts\\debrishandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\debrishandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\assets\\scripts\\maxdistancescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\maxdistancescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\assets\\scripts\\sfxvolumehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\sfxvolumehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\assets\\scripts\\winstatehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\winstatehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\assets\\scripts\\helperscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\helperscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\assets\\scripts\\lineandarrowhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\lineandarrowhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\assets\\scripts\\mutevolumehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mutevolumehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\assets\\scripts\\previouspathhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\previouspathhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\assets\\scripts\\musicvolumehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\musicvolumehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\assets\\scripts\\mainmenuscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mainmenuscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\assets\\scripts\\mainmenubackgroundscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mainmenubackgroundscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\assets\\scripts\\levelbuttonhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\levelbuttonhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\assets\\scripts\\inputscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\inputscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\assets\\scripts\\exitsignhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\exitsignhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\assets\\scripts\\endlessloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\endlessloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\assets\\scripts\\debuggingscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\debuggingscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\assets\\scripts\\comethandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\comethandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\assets\\scripts\\buttonsoundhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\buttonsoundhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\assets\\scripts\\boostsliderhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC19933E-13EF-F540-D297-91BC7A86B658}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\boostsliderhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Library\\PackageCache\\com.unity.ugui@f55986520ec2\\Editor\\UGUI\\UI\\GraphicEditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.ugui@f55986520ec2\\Editor\\UGUI\\UI\\GraphicEditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\LineRenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\LineRenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\ArrowScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\ArrowScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\MainGameSettingsHandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\MainGameSettingsHandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 90,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ShipControlsScript.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\ShipControlsScript.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ShipControlsScript.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\ShipControlsScript.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ShipControlsScript.cs",
+              "ViewState": "AgIAALkAAAAAAAAAAABRwLwAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T11:36:09.334Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "WinStateHandler.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\WinStateHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\WinStateHandler.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\WinStateHandler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\WinStateHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T12:13:32.018Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BaseShipScript.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\BaseShipScript.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\BaseShipScript.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\BaseShipScript.cs",
+              "RelativeToolTip": "Assets\\Scripts\\BaseShipScript.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T11:50:52.054Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SaveManager.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\SaveManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SaveManager.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\SaveManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SaveManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T12:07:00.998Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SoundHandler.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\SoundHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SoundHandler.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\SoundHandler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SoundHandler.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAYwDcAAABmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T15:17:31.809Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "SFXVolumeHandler.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\SFXVolumeHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SFXVolumeHandler.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\SFXVolumeHandler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SFXVolumeHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T17:13:40.207Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "LevelLoader.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\LevelLoader.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LevelLoader.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\LevelLoader.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LevelLoader.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAwBsDAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-10T13:28:10.707Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MaxDistanceScript.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\MaxDistanceScript.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MaxDistanceScript.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\MaxDistanceScript.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MaxDistanceScript.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T15:41:51.737Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TopLevelUIHandler.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\TopLevelUIHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\TopLevelUIHandler.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\TopLevelUIHandler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\TopLevelUIHandler.cs",
+              "ViewState": "AgIAAGQAAAAAAAAAAADwv0QAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T12:13:51.104Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "DebrisHandler.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\DebrisHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\DebrisHandler.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\DebrisHandler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\DebrisHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-13T16:12:03.03Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PlanetScript.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\PlanetScript.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PlanetScript.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\PlanetScript.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PlanetScript.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAzwCcAAABiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T15:22:35.849Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LevelUIPanelHandler.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\LevelUIPanelHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LevelUIPanelHandler.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\LevelUIPanelHandler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LevelUIPanelHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T13:33:07.601Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CameraScript.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\CameraScript.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CameraScript.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\CameraScript.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CameraScript.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAgwA4AAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-26T14:42:48.635Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TutorialHandler.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\TutorialHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\TutorialHandler.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\TutorialHandler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\TutorialHandler.cs",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAgwIsAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T14:27:01.528Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "HelperScript.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\HelperScript.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\HelperScript.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\HelperScript.cs",
+              "RelativeToolTip": "Assets\\Scripts\\HelperScript.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-26T14:40:17.676Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PlanetClass.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\PlanetClass.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PlanetClass.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\PlanetClass.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PlanetClass.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAvwDgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T18:53:28.794Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "LineAndArrowHandler.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\LineAndArrowHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LineAndArrowHandler.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\LineAndArrowHandler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LineAndArrowHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T15:24:38.642Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "MainMenuBackgroundScript.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\MainMenuBackgroundScript.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MainMenuBackgroundScript.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\MainMenuBackgroundScript.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MainMenuBackgroundScript.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T14:11:01.137Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "PreviousPathHandler.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\PreviousPathHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PreviousPathHandler.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\PreviousPathHandler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PreviousPathHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T15:58:37.048Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "MusicVolumeHandler.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\MusicVolumeHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MusicVolumeHandler.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\MusicVolumeHandler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MusicVolumeHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T16:46:59.951Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "MainMenuScript.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\MainMenuScript.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MainMenuScript.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\MainMenuScript.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MainMenuScript.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T18:35:54.659Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "MuteVolumeHandler.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\MuteVolumeHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MuteVolumeHandler.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\MuteVolumeHandler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MuteVolumeHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T12:46:53.585Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "LevelButtonHandler.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\LevelButtonHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LevelButtonHandler.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\LevelButtonHandler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LevelButtonHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T12:12:31.393Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "InputScript.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\InputScript.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\InputScript.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\InputScript.cs",
+              "RelativeToolTip": "Assets\\Scripts\\InputScript.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T16:05:28.125Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "ExitSignHandler.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\ExitSignHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ExitSignHandler.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\ExitSignHandler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ExitSignHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T16:05:17.093Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "EndlessLoader.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\EndlessLoader.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\EndlessLoader.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\EndlessLoader.cs",
+              "RelativeToolTip": "Assets\\Scripts\\EndlessLoader.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T16:05:12.454Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "ButtonSoundHandler.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\ButtonSoundHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ButtonSoundHandler.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\ButtonSoundHandler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ButtonSoundHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T15:04:24.617Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "BoostSliderHandler.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\BoostSliderHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\BoostSliderHandler.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\BoostSliderHandler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\BoostSliderHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T16:04:30.175Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "CometHandler.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\CometHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CometHandler.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\CometHandler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CometHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T16:54:54.336Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "DebuggingScript.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\DebuggingScript.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\DebuggingScript.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\DebuggingScript.cs",
+              "RelativeToolTip": "Assets\\Scripts\\DebuggingScript.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-26T14:42:41.998Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "MainGameSettingsHandler.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\MainGameSettingsHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MainGameSettingsHandler.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\MainGameSettingsHandler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MainGameSettingsHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T12:53:26.861Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "GraphicEditor.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Library\\PackageCache\\com.unity.ugui@f55986520ec2\\Editor\\UGUI\\UI\\GraphicEditor.cs",
+              "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.ugui@f55986520ec2\\Editor\\UGUI\\UI\\GraphicEditor.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Library\\PackageCache\\com.unity.ugui@f55986520ec2\\Editor\\UGUI\\UI\\GraphicEditor.cs",
+              "RelativeToolTip": "Library\\PackageCache\\com.unity.ugui@f55986520ec2\\Editor\\UGUI\\UI\\GraphicEditor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T18:56:05.304Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "ArrowScript.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\ArrowScript.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ArrowScript.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\ArrowScript.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ArrowScript.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-26T14:39:52.446Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "LineRenderer.cs",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\LineRenderer.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LineRenderer.cs",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\SpaceGame\\Space Game\\Assets\\Scripts\\LineRenderer.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LineRenderer.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-26T14:38:37.292Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

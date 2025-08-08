@@ -1,8 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/*
+Notes:
+
+*/
 using System.IO;
 using UnityEngine;
-using UnityEditor;
 
 public class DebuggingScript : MonoBehaviour
 {

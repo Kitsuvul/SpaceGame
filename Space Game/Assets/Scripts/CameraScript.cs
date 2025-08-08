@@ -3,148 +3,139 @@ Notes:
 
 
 */
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraScript : MonoBehaviour {
 
-    #region Public Variables
-    public float PerspectivezoomSpeed;
-    public float OrthoZoomSpeed;
-    public bool isTouched = false;
-    public bool isLaunched = false;
-    public bool isEndless = false;
-    public bool hasAnimated = false;
-    public int launchPower = 0, maxPower = 500, boost = 1000;
-    public Vector2 origin;
-    public GameObject rocketShip, updateObj, settingObj;
-    public Animation cameraAnim;
-    #endregion
-
     #region Private Variables
-    private UpdateScript _updateScr;
-    private Vector2 startPos = new Vector2(0.0f, 1.35f);
-    private Vector3 launchDir = new Vector3(0.0f, 10.0f, 0.0f); // Making public briefly
-    private Vector3 cameraPos =  new Vector3(0.0f, 0.0f, -10.0f);
+    private float OrthoZoomSpeed = 0.1f;
+    private float cameraOrthoStartView = 16.875f;
+    private bool hasAnimated = false;
+    private bool hasAnimatedLevelIntro = false;
+    private Vector3 cameraStartPos = new Vector3(0.0f, 47.5f, -10.0f);
+    private Vector3 cameraStartPosPostAnim = new Vector3(0.0f, 15.5f, -10.0f);
+    private GameObject rocketShipObj, gameControllerObj;
+    private ShipControlsScript rocketControllerScript;
+    private LevelLoader levelLoaderScript;
+    private InputScript inputScript;
+    private HelperScript helperScript;
+    private Animation cameraAnim;
+
+    // New Variables for behind Arrow
+    private bool useNewArrowSystem = true;
+    private Vector3 cameraStartPosPostAnimBehindArrow = new Vector3(0.0f, 10f, -10.0f);
+    private float cameraOrthoStartViewBehindArrow = 20f;
     #endregion
 
+    #region Properties
+    public bool HasAnimated
+    {
+        get { return hasAnimated; }
+        private set { hasAnimated = value; }
+    }
+
+    public bool HasAnimatedLevelIntro
+    {
+        get { return hasAnimatedLevelIntro; }
+        private set { hasAnimatedLevelIntro = value; }
+    }
+    #endregion
+
+    #region Unity Functions
     void Awake()
     {
-        settingObj = GameObject.FindGameObjectWithTag("PersistSettings");
-        updateObj = GameObject.FindGameObjectWithTag("Home");
-        rocketShip = GameObject.FindGameObjectWithTag("Player");
+        gameControllerObj = GameObject.FindGameObjectWithTag("GameController");
+        inputScript = gameControllerObj.GetComponent<InputScript>();
+        helperScript = gameControllerObj.GetComponent<HelperScript>();
+        levelLoaderScript = gameControllerObj.GetComponent<LevelLoader>();
 
-        _updateScr = updateObj.GetComponent<UpdateScript>();
+
+        rocketShipObj = GameObject.FindGameObjectWithTag("Player");
+        rocketControllerScript = rocketShipObj.GetComponent<ShipControlsScript>();
+
         cameraAnim = this.GetComponent<Animation>();
     }
 
     void Update()
     {
-        // =====================
-        // Assorted Debug
-        // =====================
-        //Debug.Log(Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position));
-        //Debug.Log("Velocity = " + rocketShip.GetComponent<Rigidbody2D>().velocity);
-        //Debug.Log("Boost = " + boost);
+        UpdateZoom();
 
-
-        // ===================
-        //  --- Use Boost ---
-        // ===================
-        #region Boost
-
-        if (Input.touchCount == 1 && isLaunched == true)
+        if (rocketControllerScript.HasLaunched && !hasAnimated)
         {
-            if (Input.GetTouch(0).phase == TouchPhase.Began && boost > 0)
-            {
-                origin = rocketShip.GetComponent<Rigidbody2D>().linearVelocity;
-                rocketShip.GetComponent<Rigidbody2D>().AddForce(rocketShip.GetComponent<Rigidbody2D>().linearVelocity.normalized * 10f, ForceMode2D.Impulse);
-            }
-            else if (Input.GetTouch(0).phase == TouchPhase.Stationary & boost > 0)
-            {
-                Debug.Log(boost);
-                boost--;
-            }
-            else if (Input.GetTouch(0).phase == TouchPhase.Ended && boost > 0)
-            {
-                rocketShip.GetComponent<Rigidbody2D>().AddForce(rocketShip.GetComponent<Rigidbody2D>().linearVelocity.normalized * -10f, ForceMode2D.Impulse);
-            }
+            UpdateCameraPositionOnLaunch();
         }
 
-        #endregion
-
-        // =====================
-        //  --- Launch Ship ---
-        // =====================
-        #region  Launch Ship
-
-        if ((Input.touchCount == 1) && (Input.GetTouch(0).phase == TouchPhase.Began))
+        if (levelLoaderScript && levelLoaderScript.LevelLoaded && !hasAnimatedLevelIntro)
         {
-            Vector2 raycast = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-            RaycastHit2D rayCastHit = Physics2D.Raycast(raycast, Input.GetTouch(0).position);
+            PlayOnLevelLoadAnimation();
+        }
+    }
+    #endregion
 
-            if (rayCastHit.collider)
-            {
-                Debug.Log("Hit Something");
-                if (rayCastHit.collider.CompareTag("Player"))
-                {
-                    Debug.Log("Touched the player");
-                    startPos = Input.GetTouch(0).position;
-                    launchPower = Mathf.RoundToInt((startPos - Input.GetTouch(0).position).magnitude);
-                    isTouched = true;
-                }
-                else { launchPower = 0; }
-            }
+    #region Methods
+    /// <summary>
+    /// Resets the camera to it's original starting point
+    /// </summary>
+    public void ResetCamera()
+    {
+        this.gameObject.transform.parent = null;
+        this.gameObject.transform.position = cameraStartPos;
+        this.gameObject.transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
+        hasAnimated = false;
+        hasAnimatedLevelIntro = false;
+    }
+
+    /// <summary>
+    /// Plays the intro camera animation on loading or reseting a level
+    /// </summary>
+    public void PlayOnLevelLoadAnimation()
+    {
+        if (!useNewArrowSystem)
+        {
+            cameraAnim["IntroShot"].wrapMode = WrapMode.Once;
+            cameraAnim.Play("IntroShot");
+            hasAnimatedLevelIntro = true;
+            Debug.Log("Played");
+        }
+        else
+        {
+            cameraAnim["IntroShotBehindArrow"].wrapMode = WrapMode.Once;
+            cameraAnim.Play("IntroShotBehindArrow");
+            hasAnimatedLevelIntro = true;
+            Debug.Log("Played");
         }
 
-        if (isTouched == true && Input.GetTouch(0).phase != TouchPhase.Ended)
+    }
+
+    /// <summary>
+    /// Plays a animation for the camera to rotate and lock with the rocket ship
+    /// </summary>
+    private void UpdateCameraPositionOnLaunch()
+    {
+        float magnitude = (helperScript.GetVec2FromPositionHelper(rocketShipObj.transform.position) - rocketControllerScript.StartPosition).magnitude;
+        if (magnitude >= 5.5f && hasAnimated == false)
         {
-            launchPower = Mathf.RoundToInt((startPos - Input.GetTouch(0).position).magnitude);
+            this.transform.parent = rocketShipObj.transform;
+            this.transform.rotation = rocketShipObj.transform.rotation;
+            this.transform.localPosition = new Vector3(10000.0f, 100000.0f, -14.6f);
+            cameraAnim["CameraZoomOut"].wrapMode = WrapMode.Once;
+            cameraAnim.Play("CameraZoomOut");
+            hasAnimated = true;
         }
-        else if (isTouched == true && Input.GetTouch(0).phase == TouchPhase.Ended)
+    }
+
+    /// <summary>
+    /// Standard update for handling the user inputed zoom controls
+    /// </summary>
+    private void UpdateZoom()
+    {
+        if (inputScript.CheckDoubleTouch())
         {
-            if(Input.GetTouch(0).position.y >= -2)
-            {
-                launchPower = Mathf.RoundToInt((startPos - Input.GetTouch(0).position).magnitude);
-                launchDir = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position) - rocketShip.transform.position;
-
-                if (launchPower > 100 && launchPower < 500)
-                {
-                    rocketShip.GetComponent<Rigidbody2D>().AddForce(launchDir * (launchPower / 10));
-                    isLaunched = true;
-                }
-                else if (launchPower > 100 && launchPower > 500)
-                {
-                    rocketShip.GetComponent<Rigidbody2D>().AddForce(launchDir * (maxPower / 10));
-                    isLaunched = true;
-                }
-                else
-                {
-                    isTouched = false;
-                }
-            }
-            isTouched = false;
-        }
-
-        #endregion
-
-        // =====================
-        // --- Check if the Player has been Touched ---
-        // =====================
-        CheckPlayerTouch();
-        // =====================
-        // --- Zoom In & Out ---
-        // =====================
-        #region Zoom
-
-        if (Input.touchCount == 2)
-        {
-            // Gets the first two touchs in the touch array
+            // Gets the first two touches in the touch array
             Touch touchZero = Input.GetTouch(0);
             Touch touchOne = Input.GetTouch(1);
 
-            // Need to find the positions of the touchs in the previous frame (A = CurrentPos - DeltaPos)
+            // Need to find the positions of the touches in the previous frame (A = CurrentPos - DeltaPos)
             Vector2 touchZeroPrevPos = touchZero.position /*Current Position of the touch*/ - touchZero.deltaPosition /*the difference in position between the touchs current position and position last frame*/;
             Vector2 touchOnePrevPos = touchOne.position - touchOne.deltaPosition;
 
@@ -153,57 +144,40 @@ public class CameraScript : MonoBehaviour {
 
             float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag; // The change in difference (Positive Results - Zoom Out, Negative Result - Zoom in)
 
-            if(Camera.main.orthographic == true)
+            if (Camera.main.orthographic == true)
             {
-                Camera.main.orthographicSize += deltaMagnitudeDiff * OrthoZoomSpeed;
-                Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize, 5.0f, 16.875f);
-                cameraPos.y = Camera.main.orthographicSize;
-            }
-            else
-            {
-                Camera.main.fieldOfView += deltaMagnitudeDiff * PerspectivezoomSpeed;
-                Camera.main.fieldOfView = Mathf.Clamp(Camera.main.fieldOfView, 0.1f, 179.9f);
-            }
-
-            Camera.main.transform.position = cameraPos;
-        }
-#endregion
-
-        // =====================
-        // --- Autozoom Out ---
-        // =====================
-        #region AutoZoom
-
-        if (isLaunched == true && rocketShip.transform.position.y >= 5.5f && hasAnimated == false)
-        {
-            this.transform.parent = rocketShip.transform;
-            this.transform.rotation = rocketShip.transform.rotation;
-            //this.transform.localPosition = new Vector3(0.0f, 0.0f, -14.6f);
-            cameraAnim["CameraZoomOut"].wrapMode = WrapMode.Once;
-            cameraAnim.Play("CameraZoomOut");
-            hasAnimated = true;
-        }
-
-        #endregion
-    }
-
-    public bool CheckPlayerTouch()
-    {
-        if ((Input.touchCount == 1) && (Input.GetTouch(0).phase == TouchPhase.Began))
-        {
-            Vector2 raycast = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-            RaycastHit2D rayCastHit = Physics2D.Raycast(raycast, Input.GetTouch(0).position);
-
-            if (rayCastHit.collider)
-            {
-                Debug.Log("Hit Something");
-                if (rayCastHit.collider.CompareTag("Player"))
+                if(!useNewArrowSystem)
                 {
-                    Debug.Log("Touched the player");
-                    return true;
+                    Camera.main.orthographicSize += deltaMagnitudeDiff * OrthoZoomSpeed;
+                    Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize, 12.0f, 55.0f);
+                    Camera.main.gameObject.transform.position = new Vector3(0.0f, Camera.main.orthographicSize - cameraOrthoStartView, 0.0f) + cameraStartPosPostAnim;
+                }
+                else
+                {
+                    Camera.main.orthographicSize += deltaMagnitudeDiff * OrthoZoomSpeed;
+                    Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize, 12.0f, 55.0f);
+                    Camera.main.gameObject.transform.position = new Vector3(0.0f, Camera.main.orthographicSize - cameraOrthoStartViewBehindArrow, 0.0f) + cameraStartPosPostAnimBehindArrow;
                 }
             }
         }
-        return false;
+        else if (inputScript.CheckIfMouseWheelIsMoving())
+        {
+            if (Camera.main.orthographic == true)
+            {
+                if (!useNewArrowSystem)
+                {
+                    Camera.main.orthographicSize -= Input.mouseScrollDelta.y;
+                    Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize, 12.0f, 55.0f);
+                    Camera.main.gameObject.transform.position = new Vector3(0.0f, Camera.main.orthographicSize - cameraOrthoStartView, 0.0f) + cameraStartPosPostAnim;
+                }
+                else
+                {
+                    Camera.main.orthographicSize -= Input.mouseScrollDelta.y;
+                    Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize, 12.0f, 55.0f);
+                    Camera.main.gameObject.transform.position = new Vector3(0.0f, Camera.main.orthographicSize - cameraOrthoStartViewBehindArrow, 0.0f) + cameraStartPosPostAnimBehindArrow;
+                }
+            }
+        }
     }
+    #endregion
 }

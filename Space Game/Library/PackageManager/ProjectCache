@@ -5,29 +5,29 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638797141561746009
-    m_Hash: 4196801024
+      ticks: 638823809004304942
+    m_Hash: 1533151315
   m_LockFileStatus:
     m_FilePath: C:/Users/danie/Documents/GitHub/SpaceGame/Space Game/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638797141565880366
-    m_Hash: 2311672722
+      ticks: 638823809533085237
+    m_Hash: 1418919205
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
   m_LocalFileStatus: []
 m_ProjectPath: C:/Users/danie/Documents/GitHub/SpaceGame/Space Game/Packages
-m_EditorVersion: 6000.0.32f1 (b2e806cf271c)
+m_EditorVersion: 6000.1.2f1 (8e2281df4c52)
 m_ResolvedPackages:
 - packageId: com.unity.2d.sprite@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.2d.sprite
+  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.2d.sprite@8e227b7a8e02
   assetPath: Packages/com.unity.2d.sprite
   name: com.unity.2d.sprite
   displayName: 2D Sprite
@@ -87,7 +87,7 @@ m_ResolvedPackages:
   upmReserved: 
   assetStore:
     productId: 
-  fingerprint: 6e37a90069af6bceba270d5e592cd6f3521c7a27
+  fingerprint: 8e227b7a8e02901a84d9678f982e6ae0efa3f5bb
   editorCompatibility:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
@@ -97,7 +97,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.2d.tilemap
+  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.2d.tilemap@e08379fa62fd
   assetPath: Packages/com.unity.2d.tilemap
   name: com.unity.2d.tilemap
   displayName: 2D Tilemap Editor
@@ -174,17 +174,17 @@ m_ResolvedPackages:
   upmReserved: 
   assetStore:
     productId: 
-  fingerprint: 90fc3d022e139285a361c6ed808cb991b4d07184
+  fingerprint: e08379fa62fdfb4468e767be9412e985ee85c45f
   editorCompatibility:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
     minimumUnityVersion: 2019.2.0a1
-- packageId: com.unity.ads@4.4.2
+- packageId: com.unity.ads@4.12.0
   testable: 0
   isDirectDependency: 1
-  version: 4.4.2
+  version: 4.12.0
   source: 1
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.ads
+  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.ads@3bb3d269d51b
   assetPath: Packages/com.unity.ads
   name: com.unity.ads
   displayName: Advertisement Legacy
@@ -193,7 +193,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: 
-  type: asset
+  type: assets
   description: "Connect your game to the Unity Ads Network for iOS and Android to
     quickly and effectively monetize your games.\n\nNOTE: Unity has joined forces
     with ironSource and recommends using Unity LevelPlay for ad mediation (instead
@@ -283,13 +283,13 @@ m_ResolvedPackages:
   entitlements:
     licensingModel: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 638161229410000000
-  documentationUrl: https://docs.unity3d.com/Packages/com.unity.ads@4.4/manual/index.html
+  datePublishedTicks: 638568068510000000
+  documentationUrl: https://docs.unity3d.com/Packages/com.unity.ads@4.12/manual/index.html
   hasRepository: 1
   repository:
     type: git
     url: https://github.com/Unity-Technologies/unity-ads-sdk.git
-    revision: 532b2db792ae728eedcc825080876b4e2c5f8544
+    revision: dbc3d4a1b92606adc83b8bc4c82672512154a792
     path: 
   unityLifecycle:
     version: 4.4.2
@@ -302,22 +302,26 @@ m_ResolvedPackages:
   git:
     hash: 
     revision: 
-  upmReserved: '{"changelog":"## **Unity**\n - Remove redirect pop-ups directing
-    users to Unity Mediation.\n## **Android**\n### **Bugfix**\n- Fixed a NullPointerException
-    when Application Context is null for cached directory file path.","gameService":{"groupName":"Monetization","groupIndex":4,"configurePath":"Project/Services/Ads","genericDashboardUrl":"https://unityads.unity3d.com/help/index","projectDashboardUrl":"https://dashboard.unity3d.com/organizations/{0}/projects/{1}/monetization/about","projectDashboardUrlType":"OrganizationKeyAndProjectGuid"},"supportedPlatforms":["Android","iOS"]}'
+  upmReserved: '{"changelog":"## **Unity**\n- Added support for the Apple Privacy
+    Manifest update to ensure publisher compliance with the App Store submission
+    requirements.\n- Added Java 8 as a minimum requirement for adding the Unity Ads
+    SDK to your project.\n- Increased banner demand.\n- Improved banner life cycle
+    performance.\n- Reduced network requests.\n- Removed the use of a deprecated
+    openURL method.\n- Fixed an issue with detecting location on certain iOS versions
+    for devices used in China.\n- Fixed multiple bugs and made improvements.","gameService":{"groupName":"Monetization","groupIndex":4,"configurePath":"Project/Services/Ads","genericDashboardUrl":"https://unityads.unity3d.com/help/index","projectDashboardUrl":"https://dashboard.unity3d.com/organizations/{0}/projects/{1}/monetization/about","projectDashboardUrlType":"OrganizationKeyAndProjectGuid"},"supportedPlatforms":["Android","iOS"]}'
   assetStore:
     productId: 
-  fingerprint: a7b997f68a1d40387ca4d33fc75578709c140a37
+  fingerprint: 3bb3d269d51b1ced8f6f203c98bb025578933edd
   editorCompatibility:
     compatibilityLevel: 0
     minimumPackageVersion: 4.4.2
-    minimumUnityVersion: 2018.4.18f1
-- packageId: com.unity.ai.navigation@2.0.5
+    minimumUnityVersion: 2021.3.0a1
+- packageId: com.unity.ai.navigation@2.0.7
   testable: 0
   isDirectDependency: 1
-  version: 2.0.5
+  version: 2.0.7
   source: 1
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.ai.navigation
+  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.ai.navigation@39ae74efb85f
   assetPath: Packages/com.unity.ai.navigation
   name: com.unity.ai.navigation
   displayName: AI Navigation
@@ -344,6 +348,7 @@ m_ResolvedPackages:
     - 1.1.3
     - 1.1.4
     - 1.1.5
+    - 1.1.6
     - 2.0.0-pre.3
     - 2.0.0-pre.4
     - 2.0.0
@@ -351,10 +356,10 @@ m_ResolvedPackages:
     - 2.0.4
     - 2.0.5
     - 2.0.6
+    - 2.0.7
     compatible:
-    - 2.0.5
-    - 2.0.6
-    recommended: 2.0.6
+    - 2.0.7
+    recommended: 2.0.7
     deprecated: []
   dependencies:
   - name: com.unity.modules.ai
@@ -393,16 +398,16 @@ m_ResolvedPackages:
   entitlements:
     licensingModel: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 638675282916940000
+  datePublishedTicks: 638797994194330000
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.ai.navigation@2.0/manual/index.html
   hasRepository: 1
   repository:
     type: git
     url: https://github.cds.internal.unity3d.com/unity/com.unity.ai.navigation.git
-    revision: 110941630e19b3574f9f81fd6fe3c28e867a9321
+    revision: f9335c44bc8104d2271e2a5c17c1829670fd7ca6
     path: 
   unityLifecycle:
-    version: 2.0.5
+    version: 2.0.7
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0
@@ -412,22 +417,23 @@ m_ResolvedPackages:
   git:
     hash: 
     revision: 
-  upmReserved: '{"changelog":"### Fixed\n* NavMesh Link would not update when switching
-    from the **Not Walkable** area type to any other area type in the inspector.
-    (NAVB-87)\n* A few documentation paragraphs and links were not accurate."}'
+  upmReserved: '{"changelog":"### Changed\n* The minimum supported editor version
+    is Unity 6 LTS. Compatibility with Unity 2023.2 is no longer guaranteed going
+    forward.\n\n### Fixed\n* Baking NavMeshSurface no longer fails when the game
+    object name has invalid file name characters."}'
   assetStore:
     productId: 
-  fingerprint: 9f76b145f0a8dd734ff2a4877f7f7edb83b7f62c
+  fingerprint: 39ae74efb85f9b44dc389774fc59c2ce4a8aa3b6
   editorCompatibility:
     compatibilityLevel: 0
-    minimumPackageVersion: 2.0.5
-    minimumUnityVersion: 2023.2.0a18
+    minimumPackageVersion: 2.0.7
+    minimumUnityVersion: 6000.0.0a1
 - packageId: com.unity.analytics@3.8.1
   testable: 0
   isDirectDependency: 1
   version: 3.8.1
   source: 1
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.analytics
+  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.analytics@6cc66d58ac08
   assetPath: Packages/com.unity.analytics
   name: com.unity.analytics
   displayName: Analytics Library
@@ -497,7 +503,7 @@ m_ResolvedPackages:
   - name: com.unity.modules.imgui
     version: 1.0.0
   - name: com.unity.services.analytics
-    version: 6.0.1
+    version: 6.0.2
   - name: com.unity.services.core
     version: 1.14.0
   - name: com.unity.modules.androidjni
@@ -550,202 +556,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 3.8.1
     minimumUnityVersion: 2019.3.0a1
-- packageId: com.unity.collab-proxy@2.6.0
-  testable: 0
-  isDirectDependency: 1
-  version: 2.6.0
-  source: 1
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.collab-proxy
-  assetPath: Packages/com.unity.collab-proxy
-  name: com.unity.collab-proxy
-  displayName: Version Control
-  author:
-    name: 
-    email: 
-    url: 
-  category: Editor
-  type: 
-  description: The package gives you the ability to use Unity Version Control in
-    the Unity editor. To use Unity Version Control, a subscription is required. Learn
-    more about how you can get started for free by visiting https://unity.com/solutions/version-control
-  errors: []
-  versions:
-    all:
-    - 1.2.3-preview
-    - 1.2.4-preview
-    - 1.2.6
-    - 1.2.7
-    - 1.2.9
-    - 1.2.11
-    - 1.2.15
-    - 1.2.16
-    - 1.2.17-preview.3
-    - 1.3.2
-    - 1.3.3
-    - 1.3.4
-    - 1.3.5
-    - 1.3.6
-    - 1.3.7
-    - 1.3.8
-    - 1.3.9
-    - 1.4.9
-    - 1.5.7
-    - 1.6.0
-    - 1.7.1
-    - 1.8.0
-    - 1.9.0
-    - 1.10.2
-    - 1.11.2
-    - 1.12.5
-    - 1.13.5
-    - 1.14.1
-    - 1.14.4
-    - 1.14.7
-    - 1.14.9
-    - 1.14.12
-    - 1.14.13
-    - 1.14.15
-    - 1.14.16
-    - 1.14.17
-    - 1.14.18
-    - 1.15.1
-    - 1.15.4
-    - 1.15.7
-    - 1.15.9
-    - 1.15.12
-    - 1.15.13
-    - 1.15.15
-    - 1.15.16
-    - 1.15.17
-    - 1.15.18
-    - 1.17.0
-    - 1.17.1
-    - 1.17.2
-    - 1.17.6
-    - 1.17.7
-    - 2.0.0-preview.6
-    - 2.0.0-preview.8
-    - 2.0.0-preview.15
-    - 2.0.0-preview.17
-    - 2.0.0-preview.20
-    - 2.0.0-preview.21
-    - 2.0.0-preview.22
-    - 2.0.0
-    - 2.0.1
-    - 2.0.3
-    - 2.0.4
-    - 2.0.5
-    - 2.0.7
-    - 2.1.0-preview.3
-    - 2.1.0-preview.5
-    - 2.1.0-preview.6
-    - 2.1.0
-    - 2.2.0
-    - 2.3.1
-    - 2.4.3
-    - 2.4.4
-    - 2.5.1
-    - 2.5.2
-    - 2.6.0
-    - 2.7.1
-    compatible:
-    - 2.6.0
-    - 2.7.1
-    recommended: 2.6.0
-    deprecated: []
-  dependencies: []
-  resolvedDependencies: []
-  keywords:
-  - backup
-  - cloud
-  - collab
-  - collaborate
-  - collaboration
-  - control
-  - devops
-  - plastic
-  - plasticscm
-  - source
-  - team
-  - teams
-  - version
-  - vcs
-  - uvcs
-  registry:
-    id: main
-    name: 
-    url: https://packages.unity.com
-    scopes: []
-    isDefault: 1
-    capabilities: 7
-    configSource: 0
-  hideInEditor: 1
-  entitlements:
-    licensingModel: 1
-  isAssetStorePackage: 0
-  datePublishedTicks: 638684801569990000
-  documentationUrl: https://docs.unity3d.com/Packages/com.unity.collab-proxy@2.6/manual/index.html
-  hasRepository: 1
-  repository:
-    type: git
-    url: https://github.cds.internal.unity3d.com/unity/com.unity.cloud.collaborate.git
-    revision: b7effc6b40a40af218ae30084906471699330ac9
-    path: 
-  unityLifecycle:
-    version: 2.6.0
-    nextVersion: 
-    recommendedVersion: 
-    isDeprecated: 0
-    deprecationMessage: 
-  isDeprecated: 0
-  deprecationMessage: 
-  git:
-    hash: 
-    revision: 
-  upmReserved: "{\"changelog\":\"### Added\\n\\n- Added the ability to merge a branch
-    or a changeset, using a new context menu actions\\n- Added file conflict & dir
-    conflict context menu actions to the merge view\\n- Added diff and merge settings
-    in Project Settings -> Version Control -> Unity Version Control Settings\\n-
-    Added merge options dialog to the merge view\\n- Added copy path & history context
-    menu actions in all menus where they apply\\n- Added an menu entry to 'Open in
-    Unity Cloud' showing the repository in the Unity Dashboard\\n\\n### Changed\\n\\n-
-    Updated the minimum supported version to Unity 2021.3.0f1\\n- Removed support
-    for migrating old Collaborate workspaces to Unity Version Control\\n- Hide from
-    the public documentation all internal APIs that were previously visible by mistake\\n-
-    Optimized switching operations to only triggers the Package Manager to reinstall
-    packages when needed\\n- Optimized incoming changes to only reload the Package
-    Manager when needed (Gluon/partial workspace only for now)\\n- Automatically
-    add UnityDirMonSyncFile rule for existing ignore.conf to avoid triggering unnecessary
-    finding changes operation\\n- Improved the \u201Csearch\u201D edit box so it
-    can resize when there is not enough space in the toolbar\\n- Replaced the \\\"D\\\"
-    DevOps icon by the branching icon used in the Hub\\n- Replaced the logo of Unity
-    in the Sign in to Unity VCS window\\n\\n### Fixed\\n\\n- Fixed files getting
-    checked out even though they are in hidden_changes.conf\\n- Fixed manual login
-    to Cloud that didn't work with an Enterprise installation\\n- Fixed resolve conflicts
-    not informing about lack of UVCS installation\\n- Fixed the Invite users to cloud
-    organization when using an Enterprise installation\\n- Fixed new child branch
-    not created from HEAD after update\\n- Fixed the learn more (here) link that
-    showed the hex color value in Unity 6\\n- Fixed link to invite members in Unity
-    Cloud.\\n- Fixed a crash in the create workspace window when unable to resolve
-    a @unity organization\\n- Fixed incoming changes view that was not kept as selected
-    after resolving some conflicts\\n- Fixed workspace name that was not refreshed
-    after repository manual creation or selection\\n- Added a warning message to
-    inform users about mismatching cloud project.\\n- Removed from the Create Workspace
-    window the Local server that was present with no installation of UVCS\\n- Replaced
-    hardcoded urls pointing to plasticscm.com\"}"
-  assetStore:
-    productId: 
-  fingerprint: 001b54a8988a14785c8e209d6c788bb15f9e58cf
-  editorCompatibility:
-    compatibilityLevel: 0
-    minimumPackageVersion: 2.6.0
-    minimumUnityVersion: 2021.3.0f1
 - packageId: com.unity.ext.nunit@2.0.5
   testable: 0
   isDirectDependency: 1
   version: 2.0.5
-  source: 1
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.ext.nunit
+  source: 2
+  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.ext.nunit@031a54704bff
   assetPath: Packages/com.unity.ext.nunit
   name: com.unity.ext.nunit
   displayName: Custom NUnit
@@ -754,7 +570,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: Libraries
-  type: assets
+  type: 
   description: A custom version of NUnit used by Unity Test Framework. Based on NUnit
     version 3.5 and works with all platforms, il2cpp and Mono AOT.
   errors: []
@@ -790,15 +606,15 @@ m_ResolvedPackages:
     configSource: 0
   hideInEditor: 1
   entitlements:
-    licensingModel: 1
+    licensingModel: 0
   isAssetStorePackage: 0
-  datePublishedTicks: 638236642220000000
+  datePublishedTicks: 0
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.ext.nunit@2.0/manual/index.html
-  hasRepository: 1
+  hasRepository: 0
   repository:
-    type: git
-    url: https://github.cds.internal.unity3d.com/unity/com.unity.ext.nunit.git
-    revision: 469fe0d46bfc26fbb32a53885ca4d12abcdae4ae
+    type: 
+    url: 
+    revision: 
     path: 
   unityLifecycle:
     version: 2.0.5
@@ -811,20 +627,20 @@ m_ResolvedPackages:
   git:
     hash: 
     revision: 
-  upmReserved: '{"changelog":"- Fixing bug for InstanceID as struct changes"}'
+  upmReserved: 
   assetStore:
     productId: 
-  fingerprint: 60ef35ffd3cd5e2f5c8887a4a4ca6148854cd092
+  fingerprint: 031a54704bffe39e6a0324909f8eaa4565bdebf2
   editorCompatibility:
     compatibilityLevel: 0
     minimumPackageVersion: 2.0.5
     minimumUnityVersion: 2019.4.0a1
-- packageId: com.unity.ide.rider@3.0.31
+- packageId: com.unity.ide.rider@3.0.36
   testable: 0
   isDirectDependency: 1
-  version: 3.0.31
+  version: 3.0.36
   source: 1
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.ide.rider
+  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.ide.rider@4d374c7eb6db
   assetPath: Packages/com.unity.ide.rider
   name: com.unity.ide.rider
   displayName: JetBrains Rider Editor
@@ -833,7 +649,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: 
-  type: assets
+  type: 
   description: The JetBrains Rider Editor package provides an integration for using
     the JetBrains Rider IDE as a code editor for Unity. It adds support for generating
     .csproj files for code completion and auto-discovery of installations.
@@ -885,11 +701,10 @@ m_ResolvedPackages:
     - 3.0.31
     - 3.0.34
     - 3.0.35
+    - 3.0.36
     compatible:
-    - 3.0.31
-    - 3.0.34
-    - 3.0.35
-    recommended: 3.0.35
+    - 3.0.36
+    recommended: 3.0.36
     deprecated: []
   dependencies:
   - name: com.unity.ext.nunit
@@ -910,16 +725,16 @@ m_ResolvedPackages:
   entitlements:
     licensingModel: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 638548308080000000
+  datePublishedTicks: 638799562419060000
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.ide.rider@3.0/manual/index.html
   hasRepository: 1
   repository:
     type: git
     url: https://github.cds.internal.unity3d.com/unity/com.unity.ide.rider.git
-    revision: ccd778a2275ff09f1a83bc924cfb2fb4d5b63566
+    revision: b5315083ab3861d21f6ab2ed0d9514daf04bf208
     path: 
   unityLifecycle:
-    version: 3.0.31
+    version: 3.0.36
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0
@@ -929,23 +744,21 @@ m_ResolvedPackages:
   git:
     hash: 
     revision: 
-  upmReserved: '{"changelog":"fix RIDER-104519 Rider is reporting errors in scripts
-    that work fine in Unity when utilizing DOTS - when Player project, by generating
-    projects for all assemblies in \"com.unity.entities\", \"com.unity.collections\"\nfix
-    RIDER-111622 Unity Rider package is not compatible with Rider Dev builds"}'
+  upmReserved: '{"changelog":"- fix RIDER-124592 Avoid affecting \"Strip Engine Code\"
+    while IL2CPP debug enabled"}'
   assetStore:
     productId: 
-  fingerprint: 7921be93db40ec070fcb01ed82d1c3df1bbdddcd
+  fingerprint: 4d374c7eb6db6907c7e6925e3086c3c73f926e13
   editorCompatibility:
     compatibilityLevel: 0
-    minimumPackageVersion: 3.0.31
-    minimumUnityVersion: 2019.2.6f1
-- packageId: com.unity.ide.visualstudio@2.0.22
+    minimumPackageVersion: 3.0.36
+    minimumUnityVersion: 2019.4.6f1
+- packageId: com.unity.ide.visualstudio@2.0.23
   testable: 0
   isDirectDependency: 1
-  version: 2.0.22
+  version: 2.0.23
   source: 1
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.ide.visualstudio
+  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.ide.visualstudio@198cdf337d13
   assetPath: Packages/com.unity.ide.visualstudio
   name: com.unity.ide.visualstudio
   displayName: Visual Studio Editor
@@ -954,7 +767,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: 
-  type: assets
+  type: 
   description: Code editor integration for supporting Visual Studio as code editor
     for unity. Adds support for generating csproj files for intellisense purposes,
     auto discovery of installations, etc.
@@ -987,7 +800,6 @@ m_ResolvedPackages:
     - 2.0.22
     - 2.0.23
     compatible:
-    - 2.0.22
     - 2.0.23
     recommended: 2.0.23
     deprecated: []
@@ -996,7 +808,7 @@ m_ResolvedPackages:
     version: 1.1.9
   resolvedDependencies:
   - name: com.unity.test-framework
-    version: 1.4.5
+    version: 1.5.1
   - name: com.unity.ext.nunit
     version: 2.0.5
   - name: com.unity.modules.imgui
@@ -1016,16 +828,16 @@ m_ResolvedPackages:
   entitlements:
     licensingModel: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 638326061910000000
+  datePublishedTicks: 638786696173840000
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.ide.visualstudio@2.0/manual/index.html
   hasRepository: 1
   repository:
     type: git
     url: https://github.cds.internal.unity3d.com/unity/com.unity.ide.visualstudio.git
-    revision: 700b44077345e97d37d464ff25507638983aed64
+    revision: 0fe3b29f9aff2b90b9f0962ae35036a824d3dd6b
     path: 
   unityLifecycle:
-    version: 2.0.22
+    version: 2.0.23
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0
@@ -1035,25 +847,24 @@ m_ResolvedPackages:
   git:
     hash: 
     revision: 
-  upmReserved: '{"changelog":"Integration:\n\n- Add support for `XDG_DATA_DIRS` and
-    `.desktop` files on Linux for `VS Code` discovery.\n- Use compile-time platform-specifics
-    instead of using runtime conditions.\n\nProject generation:\n\n- Suppress `USG0001`
-    warnings.\n- Mark referenced assemblies as private (to not copy extra files to
-    output directory when building).\n- Add Unity capability to SDK-Style projects.\n-
-    Prevent circular dependency errors with SDK-Style projects."}'
+  upmReserved: '{"changelog":"Integration:\n\n- Monitor `additionalfile` extension
+    by default.\n- Try opening a Visual Studio Code workspace if there''s one (`.code-workspace`
+    file in the Unity project).\n\nProject generation:\n\n- Identify `asset`, `meta`,
+    `prefab` and `unity` files as `yaml` (Visual Studio Code).\n- Add `sln`/`csproj`
+    file nesting (Visual Studio Code).\n- Improve SDK style project generation."}'
   assetStore:
     productId: 
-  fingerprint: 8140e851d83e922ca2021b04a89519de94ebe38c
+  fingerprint: 198cdf337d13c83ca953581515630d66b779e92b
   editorCompatibility:
     compatibilityLevel: 0
-    minimumPackageVersion: 2.0.22
+    minimumPackageVersion: 2.0.23
     minimumUnityVersion: 2019.4.25f1
 - packageId: com.unity.multiplayer.center@1.0.0
   testable: 0
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.multiplayer.center
+  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.multiplayer.center@f3fb577b3546
   assetPath: Packages/com.unity.multiplayer.center
   name: com.unity.multiplayer.center
   displayName: Multiplayer Center
@@ -1133,7 +944,7 @@ m_ResolvedPackages:
   upmReserved: 
   assetStore:
     productId: 
-  fingerprint: f502d8ac613fa076192423e73892fbd89eb4049b
+  fingerprint: f3fb577b3546594b97b8cc34307cd621f60f1c73
   editorCompatibility:
     compatibilityLevel: 0
     minimumPackageVersion: 1.0.0
@@ -1143,7 +954,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 4.12.2
   source: 1
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.purchasing
+  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.purchasing@649c6c7b3b1b
   assetPath: Packages/com.unity.purchasing
   name: com.unity.purchasing
   displayName: In App Purchasing
@@ -1308,7 +1119,7 @@ m_ResolvedPackages:
     path: 
   unityLifecycle:
     version: 4.12.2
-    nextVersion: 5.0.0-pre.1
+    nextVersion: 5.0.0-pre.3
     recommendedVersion: 4.12.0
     isDeprecated: 0
     deprecationMessage: 
@@ -1327,12 +1138,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 4.12.2
     minimumUnityVersion: 2020.3.0a1
-- packageId: com.unity.test-framework@1.4.5
+- packageId: com.unity.test-framework@1.5.1
   testable: 0
   isDirectDependency: 1
-  version: 1.4.5
-  source: 1
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.test-framework
+  version: 1.5.1
+  source: 2
+  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.test-framework@607a88b8f2d7
   assetPath: Packages/com.unity.test-framework
   name: com.unity.test-framework
   displayName: Test Framework
@@ -1341,7 +1152,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: Unity Test Framework
-  type: assets
+  type: 
   description: Test framework for running Edit mode and Play mode tests in Unity.
   errors: []
   versions:
@@ -1396,18 +1207,18 @@ m_ResolvedPackages:
     - 1.4.4
     - 1.4.5
     - 1.4.6
+    - 1.5.1
     - 2.0.1-exp.1
     - 2.0.1-exp.2
     - 2.0.1-pre.12
     - 2.0.1-pre.18
     compatible:
-    - 1.4.5
-    - 1.4.6
+    - 1.5.1
     - 2.0.1-exp.1
     - 2.0.1-exp.2
     - 2.0.1-pre.12
     - 2.0.1-pre.18
-    recommended: 1.4.6
+    recommended: 1.5.1
     deprecated: []
   dependencies:
   - name: com.unity.ext.nunit
@@ -1436,18 +1247,18 @@ m_ResolvedPackages:
     configSource: 0
   hideInEditor: 1
   entitlements:
-    licensingModel: 1
+    licensingModel: 0
   isAssetStorePackage: 0
-  datePublishedTicks: 638575054880000000
-  documentationUrl: https://docs.unity3d.com/Packages/com.unity.test-framework@1.4/manual/index.html
-  hasRepository: 1
+  datePublishedTicks: 0
+  documentationUrl: 
+  hasRepository: 0
   repository:
-    type: git
-    url: https://github.com/Unity-Technologies/com.unity.test-framework.git
-    revision: e50747c90fb18ab9f4f350b60d0fcdcae19bdebc
+    type: 
+    url: 
+    revision: 
     path: 
   unityLifecycle:
-    version: 1.4.5
+    version: 1.5.1
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0
@@ -1457,47 +1268,20 @@ m_ResolvedPackages:
   git:
     hash: 
     revision: 
-  upmReserved: '{"changelog":"- Fixed an issue where batchmode test runs would never
-    finish if a test yielded WaitForEndOfFrame (DSTR-1009).\n- Fixed an issue where
-    the location prompt was required when using the Install all tests in ''build''
-    folder option during test builds.\n- Canceling a PlayMode test run now correctly
-    restores the scene setup, instead of leaving the editor in the test scene.\n-
-    Fixed an issue where UnitySetUp did not fail when nested coroutines threw an
-    exception (DSTR-1007).\n- When selecting multiple tests and running them, the
-    test runner now correctly updates the details of the first selected test (UTF-602).\n-
-    The interaction mode and application idle time settings is now being changes
-    when running tests, resulting in faster test runs if not already in use (applies
-    to 2020.3 and later) (DSTR-690).\n- Fixed an issue where some NUnit attributes
-    caused errors and stopped async test runs (DSTR-1040).\n- Added support for the
-    MaxTime attribute on async and UnityTest methods (DSTR-1040).\n- Fixed a memory
-    leak issue where a large number of domain reloads within the same test could
-    crash the editor (DSTR-1023).\n- Changed to use a progress bar inside the test
-    runner window when running tests. This ensures that the progress bar is not fighting
-    to display when e.g. compiling scripts and also makes it easier to cancel a run.
-    This progress bar is displayed for all types of runs (EditMode, PlayMode and
-    Player). (UTF-596).\n- Fixed an issue where ignored tests with an attributes
-    did not display the ignore reason in the test runner UI.\n- Having multiple tests
-    with the same unique id no longer gives a error with ''An item with the same
-    key has already been added'', but instead logs an warning about the duplicate
-    id.\n- The result icons for test suites should no longer flicker when running
-    tests.\n- Ensured that test results ignored in the editor but run on a player
-    are not overwritten with ignore status when shown in the UI (DSTR-1042).\n- Fixed
-    an issue where the RunStarted event was not invoked correctly during a test run
-    (DSTR-1046).\n- Fixed an issue where TestStarted and TestFinished events were
-    repeated for ignored test fixtures after a domain reload (DSTR-986)."}'
+  upmReserved: 
   assetStore:
     productId: 
-  fingerprint: 0a21eb82d95cd331643a1e0ce4e8e9a5f18954c8
+  fingerprint: 607a88b8f2d7614281a086a98f027cd069f75d2d
   editorCompatibility:
     compatibilityLevel: 0
-    minimumPackageVersion: 1.4.5
-    minimumUnityVersion: 2019.4.0a10
+    minimumPackageVersion: 1.5.1
+    minimumUnityVersion: 2022.3.0a1
 - packageId: com.unity.timeline@1.8.7
   testable: 0
   isDirectDependency: 1
   version: 1.8.7
   source: 1
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.timeline
+  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.timeline@c58b4ee65782
   assetPath: Packages/com.unity.timeline
   name: com.unity.timeline
   displayName: Timeline
@@ -1683,7 +1467,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 2.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.ugui
+  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.ugui@f55986520ec2
   assetPath: Packages/com.unity.ugui
   name: com.unity.ugui
   displayName: Unity UI
@@ -1765,7 +1549,7 @@ m_ResolvedPackages:
   upmReserved: 
   assetStore:
     productId: 
-  fingerprint: fd5da3b4bec8d043b01c30177bd62059c5fa36d0
+  fingerprint: f55986520ec2233b4aa5aab4ebcd6626ad87f0ac
   editorCompatibility:
     compatibilityLevel: 0
     minimumPackageVersion: 2.0.0
@@ -1775,7 +1559,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.accessibility
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.accessibility
   assetPath: Packages/com.unity.modules.accessibility
   name: com.unity.modules.accessibility
   displayName: Accessibility
@@ -1842,7 +1626,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.ai
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.ai
   assetPath: Packages/com.unity.modules.ai
   name: com.unity.modules.ai
   displayName: AI
@@ -1909,7 +1693,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.androidjni
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.androidjni
   assetPath: Packages/com.unity.modules.androidjni
   name: com.unity.modules.androidjni
   displayName: Android JNI
@@ -1975,7 +1759,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.animation
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.animation
   assetPath: Packages/com.unity.modules.animation
   name: com.unity.modules.animation
   displayName: Animation
@@ -2042,7 +1826,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.assetbundle
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.assetbundle
   assetPath: Packages/com.unity.modules.assetbundle
   name: com.unity.modules.assetbundle
   displayName: Asset Bundle
@@ -2109,7 +1893,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.audio
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.audio
   assetPath: Packages/com.unity.modules.audio
   name: com.unity.modules.audio
   displayName: Audio
@@ -2176,7 +1960,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.cloth
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.cloth
   assetPath: Packages/com.unity.modules.cloth
   name: com.unity.modules.cloth
   displayName: Cloth
@@ -2247,7 +2031,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.director
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.director
   assetPath: Packages/com.unity.modules.director
   name: com.unity.modules.director
   displayName: Director
@@ -2322,7 +2106,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.imageconversion
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.imageconversion
   assetPath: Packages/com.unity.modules.imageconversion
   name: com.unity.modules.imageconversion
   displayName: Image Conversion
@@ -2389,7 +2173,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.imgui
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.imgui
   assetPath: Packages/com.unity.modules.imgui
   name: com.unity.modules.imgui
   displayName: IMGUI
@@ -2456,7 +2240,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.jsonserialize
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.jsonserialize
   assetPath: Packages/com.unity.modules.jsonserialize
   name: com.unity.modules.jsonserialize
   displayName: JSONSerialize
@@ -2523,7 +2307,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.particlesystem
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.particlesystem
   assetPath: Packages/com.unity.modules.particlesystem
   name: com.unity.modules.particlesystem
   displayName: Particle System
@@ -2590,7 +2374,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.physics
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.physics
   assetPath: Packages/com.unity.modules.physics
   name: com.unity.modules.physics
   displayName: Physics
@@ -2657,7 +2441,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.physics2d
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.physics2d
   assetPath: Packages/com.unity.modules.physics2d
   name: com.unity.modules.physics2d
   displayName: Physics 2D
@@ -2724,7 +2508,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.screencapture
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.screencapture
   assetPath: Packages/com.unity.modules.screencapture
   name: com.unity.modules.screencapture
   displayName: Screen Capture
@@ -2795,7 +2579,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.terrain
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.terrain
   assetPath: Packages/com.unity.modules.terrain
   name: com.unity.modules.terrain
   displayName: Terrain
@@ -2862,7 +2646,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.terrainphysics
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.terrainphysics
   assetPath: Packages/com.unity.modules.terrainphysics
   name: com.unity.modules.terrainphysics
   displayName: Terrain Physics
@@ -2937,7 +2721,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.tilemap
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.tilemap
   assetPath: Packages/com.unity.modules.tilemap
   name: com.unity.modules.tilemap
   displayName: Tilemap
@@ -3007,7 +2791,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.ui
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.ui
   assetPath: Packages/com.unity.modules.ui
   name: com.unity.modules.ui
   displayName: UI
@@ -3074,7 +2858,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.uielements
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.uielements
   assetPath: Packages/com.unity.modules.uielements
   name: com.unity.modules.uielements
   displayName: UIElements
@@ -3157,7 +2941,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.umbra
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.umbra
   assetPath: Packages/com.unity.modules.umbra
   name: com.unity.modules.umbra
   displayName: Umbra
@@ -3224,7 +3008,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.unityanalytics
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unityanalytics
   assetPath: Packages/com.unity.modules.unityanalytics
   name: com.unity.modules.unityanalytics
   displayName: Unity Analytics
@@ -3298,7 +3082,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.unitywebrequest
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequest
   assetPath: Packages/com.unity.modules.unitywebrequest
   name: com.unity.modules.unitywebrequest
   displayName: Unity Web Request
@@ -3365,7 +3149,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.unitywebrequestassetbundle
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestassetbundle
   assetPath: Packages/com.unity.modules.unitywebrequestassetbundle
   name: com.unity.modules.unitywebrequestassetbundle
   displayName: Unity Web Request Asset Bundle
@@ -3440,7 +3224,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.unitywebrequestaudio
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestaudio
   assetPath: Packages/com.unity.modules.unitywebrequestaudio
   name: com.unity.modules.unitywebrequestaudio
   displayName: Unity Web Request Audio
@@ -3515,7 +3299,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.unitywebrequesttexture
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequesttexture
   assetPath: Packages/com.unity.modules.unitywebrequesttexture
   name: com.unity.modules.unitywebrequesttexture
   displayName: Unity Web Request Texture
@@ -3590,7 +3374,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.unitywebrequestwww
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestwww
   assetPath: Packages/com.unity.modules.unitywebrequestwww
   name: com.unity.modules.unitywebrequestwww
   displayName: Unity Web Request WWW
@@ -3681,7 +3465,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.vehicles
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.vehicles
   assetPath: Packages/com.unity.modules.vehicles
   name: com.unity.modules.vehicles
   displayName: Vehicles
@@ -3752,7 +3536,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.video
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.video
   assetPath: Packages/com.unity.modules.video
   name: com.unity.modules.video
   displayName: Video
@@ -3831,7 +3615,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.vr
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.vr
   assetPath: Packages/com.unity.modules.vr
   name: com.unity.modules.vr
   displayName: VR
@@ -3912,7 +3696,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.wind
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.wind
   assetPath: Packages/com.unity.modules.wind
   name: com.unity.modules.wind
   displayName: Wind
@@ -3979,7 +3763,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.xr
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.xr
   assetPath: Packages/com.unity.modules.xr
   name: com.unity.modules.xr
   displayName: XR
@@ -4058,7 +3842,7 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.subsystems
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.subsystems
   assetPath: Packages/com.unity.modules.subsystems
   name: com.unity.modules.subsystems
   displayName: Subsystems
@@ -4129,7 +3913,7 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 1.0.0
   source: 2
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.modules.hierarchycore
+  resolvedPath: C:\Users\danie\Documents\GitHub\6000.1.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.hierarchycore
   assetPath: Packages/com.unity.modules.hierarchycore
   name: com.unity.modules.hierarchycore
   displayName: Hierarchy Core
@@ -4196,7 +3980,7 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 1.14.0
   source: 1
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.services.core
+  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.services.core@9e81a5e38245
   assetPath: Packages/com.unity.services.core
   name: com.unity.services.core
   displayName: Services Core
@@ -4309,12 +4093,12 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 1.14.0
     minimumUnityVersion: 2021.3.0a1
-- packageId: com.unity.services.analytics@6.0.1
+- packageId: com.unity.services.analytics@6.0.2
   testable: 0
   isDirectDependency: 0
-  version: 6.0.1
+  version: 6.0.2
   source: 1
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.services.analytics
+  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.services.analytics@6629cba2f5e7
   assetPath: Packages/com.unity.services.analytics
   name: com.unity.services.analytics
   displayName: Analytics
@@ -4323,7 +4107,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: 
-  type: asset
+  type: 
   description: The Unity Analytics package automatically collects core events and
     user properties when someone uses your game or application, and enables you to
     track specific in-game actions your user performs by defining custom events.
@@ -4361,7 +4145,6 @@ m_ResolvedPackages:
     - 6.0.2
     - 6.0.3
     compatible:
-    - 6.0.1
     - 6.0.2
     - 6.0.3
     recommended: 6.0.3
@@ -4403,16 +4186,16 @@ m_ResolvedPackages:
   entitlements:
     licensingModel: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 638587935530000000
+  datePublishedTicks: 638635624479490000
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.services.analytics@6.0/manual/index.html
   hasRepository: 1
   repository:
     type: git
     url: https://github.cds.internal.unity3d.com/unity/operate-services-sdk.git
-    revision: e54e6e452cff2d0d31e9b5530b2dbd8ffcf2f0e7
+    revision: 02faa03349f9effb35a95ba25843dbef32bb37e8
     path: 
   unityLifecycle:
-    version: 6.0.1
+    version: 6.0.2
     nextVersion: 
     recommendedVersion: 6.0.1
     isDeprecated: 0
@@ -4422,29 +4205,30 @@ m_ResolvedPackages:
   git:
     hash: 
     revision: 
-  upmReserved: '{"changelog":"### Added\n\n* New Analytics Debug Panel accessible
-    in the Unity Editor from Services -> Analytics -> Debug Panel\n  * Monitor the
-    SDK''s activity while you play-test\n  * Observe events as they are recorded
-    and uploaded\n  * ... and more!\n\n### Breaking Changes\n\n* The minimum supported
-    editor version for the UGS Analytics SDK is now 2021.3\n* All methods, classes
-    and structs marked as `Obsolete` in earlier versions of the SDK have been removed\n 
-    * If you have trouble upgrading, move to 5.1.0 first, fix the deprecation warnings
-    there, then move to 6.0.0","gameService":{"configurePath":"Project/Services/Analytics
-    - Gaming Services","genericDashboardUrl":"https://dashboard.unity3d.com/analytics","projectDashboardUrl":"https://dashboard.unity3d.com/organizations/{0}/projects/{1}/analytics/events","projectDashboardUrlType":"OrganizationKeyAndProjectGuid"},"supportedPlatforms":["Android","iOS","Linux","Mac","PC","Windows
+  upmReserved: '{"changelog":"### Fixed\n\n* Go To Dashboard link in Package Manager
+    in 2022 and newer editor versions now leads to the correct landing page instead
+    of an unrelated error page\n* Numerous public API elements that were missing
+    XmlDoc comments now have them\n* Setting ExternalUserId before enabling the SDK
+    for the first time now correctly records a newPlayer event if it differs from
+    the last seen user ID\n* Changing ExternalUserId while data collection is enabled
+    now correctly starts a new session and records start-up events\n* Changing ExternalUserId
+    while data collection is disabled now correctly records start-up events when
+    it is (re)enabled","gameService":{"configurePath":"Project/Services/Analytics
+    - Gaming Services","genericDashboardUrl":"https://cloud.unity.com/analytics","projectDashboardUrl":"https://cloud.unity.com/home/organizations/{0}/projects/{1}/environments/default/analytics/v2/about","projectDashboardUrlType":"OrganizationKeyAndProjectGuid"},"supportedPlatforms":["Android","iOS","Linux","Mac","PC","Windows
     8.1 Universal","Windows 10 Universal","WebGL"]}'
   assetStore:
     productId: 
-  fingerprint: f7e249983920dd67eba8952b09e37a6fe4582dd0
+  fingerprint: 6629cba2f5e7ff255833c417c8610bd06c505241
   editorCompatibility:
     compatibilityLevel: 0
-    minimumPackageVersion: 6.0.1
+    minimumPackageVersion: 6.0.2
     minimumUnityVersion: 2021.3.0a1
 - packageId: com.unity.nuget.newtonsoft-json@3.2.1
   testable: 0
   isDirectDependency: 0
   version: 3.2.1
   source: 1
-  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.nuget.newtonsoft-json
+  resolvedPath: C:\Users\danie\Documents\GitHub\SpaceGame\Space Game\Library\PackageCache\com.unity.nuget.newtonsoft-json@74deb55db2a0
   assetPath: Packages/com.unity.nuget.newtonsoft-json
   name: com.unity.nuget.newtonsoft-json
   displayName: Newtonsoft Json
@@ -4530,4 +4314,4 @@ m_ResolvedPackages:
     compatibilityLevel: 0
     minimumPackageVersion: 3.2.1
     minimumUnityVersion: 2018.4.0a1
-m_BuiltInPackagesHash: 02ccae8a6fea3b773b91b78f7a8d92680a6ca369
+m_BuiltInPackagesHash: 0620e8cf0e2ba74856203b50d0a1e7e0e0b09da0

@@ -4,66 +4,128 @@ using UnityEngine;
 
 public class SaveManager : MonoBehaviour
 {
-    public static SaveManager Instance { get; set; }
-    public SaveScript state;
+    private static SaveManager instance;
 
-    public int finalScore;
+    private static SaveManager Instance {  get { return instance; } }
 
     private void Awake()
     {
-        GameObject[] settingsObj = GameObject.FindGameObjectsWithTag("PersistSettings");
-        if (settingsObj.Length > 1)
+        if(instance != null && instance != this)
         {
             Destroy(this.gameObject);
         }
+        else { instance = this; }
 
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(this.gameObject);
     }
 
-    private void Start()
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="volume"></param>
+    public void SetVolumeInPlayerPrefs(float volume)
     {
-        Instance = this;
-        Load();
-
-        Debug.Log(HelperScript.Serialize<SaveScript>(state));
+        PlayerPrefs.SetFloat("Volume", volume);
     }
 
-    // Save the whole state of this saveState script to the player pref
-    public void Save()
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    public float GetVolumeInPlayerPrefs()
     {
-        saveScore();
-        saveVolume();
-        PlayerPrefs.SetString("save", HelperScript.Serialize<SaveScript>(state));
-        Debug.Log("Game Saved!");
-    }
-
-    // Load the previous save state from the player prefs
-    public void Load()
-    {
-        if(PlayerPrefs.HasKey("save"))
+        if (PlayerPrefs.HasKey("Volume"))
         {
-            state = HelperScript.Deserialize<SaveScript>(PlayerPrefs.GetString("save"));
-
-            finalScore = state.score;
+            return PlayerPrefs.GetFloat("Volume");
         }
-        else
-        {
-            state = new SaveScript();
-            Save();
-            Debug.Log("No Save File Found, Creating a New One!");
-        }
+        else { return 0.1f; }
     }
 
-    public void saveScore()
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="volume"></param>
+    public void SetSFXVolumeInPlayerPrefs(float volume)
     {
-        if (finalScore > state.score)
-        {
-            state.score = finalScore;
-        }
+        PlayerPrefs.SetFloat("SFXVolume", volume);
     }
 
-    public void saveVolume()
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    public float GetSFXVolumeInPlayerPrefs()
     {
+        if (PlayerPrefs.HasKey("SFXVolume"))
+        {
+            return PlayerPrefs.GetFloat("SFXVolume");
+        }
+        else { return 0.1f; }
+    }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="isMuted"></param>
+    public void SetIsMutedInPlayerPrefs(bool isMuted)
+    {
+        PlayerPrefs.SetInt("IsMuted", isMuted ? 1 : 0);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    public bool GetIsMutedInPlayerPrefs()
+    {
+        if (PlayerPrefs.HasKey("IsMuted"))
+        {
+            return PlayerPrefs.GetInt("IsMuted") != 0;
+        }
+        else { return false; }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="isMuted"></param>
+    public void SetIsTutorialCompleteInPlayerPrefs(bool hasCompleted)
+    {
+        PlayerPrefs.SetInt("TutorialComplete", hasCompleted ? 1 : 0);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    public bool GetIsTutorialCompleteInPlayerPrefs()
+    {
+        if (PlayerPrefs.HasKey("TutorialComplete"))
+        {
+            return PlayerPrefs.GetInt("TutorialComplete") != 0;
+        }
+        else { return false; }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="level"></param>
+    public void SetHighestLevelInPlayerPrefs(int level)
+    {
+        PlayerPrefs.SetInt("Level", level);
+    }
+    
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    public int GetHighestLevelInPlayerPrefs()
+    {
+        if (PlayerPrefs.HasKey("Level"))
+        {
+            return PlayerPrefs.GetInt("Level");
+        }
+        else { return 0; }
     }
 }

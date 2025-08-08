@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags:
   - PlanetS
   - PlanetM
@@ -29,6 +29,10 @@ TagManager:
   - Home
   - Orbs
   - StartBox
+  - Marker
+  - MarkerContainer
+  - Comet
+  - SoundObject
   layers:
   - Default
   - TransparentFX
@@ -75,3 +79,5 @@ TagManager:
   - name: Objects Layer
     uniqueID: 2690522777
     locked: 0
+  m_RenderingLayers:
+  - Default

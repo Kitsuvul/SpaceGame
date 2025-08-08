@@ -3,482 +3,809 @@ Notes:
  - 
 
 */
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
-public class LevelLoader : PlanetScript
+public class LevelLoader : MonoBehaviour
 {
-    // --- UI Elements ---
+    #region Variables
+    private GameObject winTriggerObj, rocketShipObj, settingsObj, cometObj;
+    [SerializeField] private GameObject PlanetSmallPrefab;
+    [SerializeField] private GameObject PlanetMediumPrefab;
+    [SerializeField] private GameObject PlanetLargePrefab;
+    private SaveManager saveManagerScript;
+    private int currentLevel = 0;
+    private bool levelLoaded = false;
+    private GameObject[] loadedPlanetObjs;
+    #endregion
 
-    public GameObject _canvas;
-    public MenuAndUIScript _menuUI;
-
-    // --- Objects ---
-    public GameObject wintrigger, exitSign, arrow, rocketShip;
-    private GameObject [] planet;
-    private LineRenderer _line;
-    
-    public Vector3 playerPos, startPos, currentPos, previousPos, planetSpawnPoint;
-    private Vector3 location = new Vector3(0.0f, 0.0f, 0.0f);
-    int amountPlanets;
-    private int frames;
-
-    private void Start()
+    #region Properties
+    public int CurrentLevel
     {
-        rocketShip = GameObject.FindGameObjectWithTag("Player");
-        wintrigger = GameObject.FindGameObjectWithTag("WinBox");
-        exitSign = GameObject.FindGameObjectWithTag("ExitSign");
+        get { return currentLevel; }
+        set { currentLevel = value; }
+    }
 
-        arrow = GameObject.FindGameObjectWithTag("Arrow");
-        //_line = arrow.GetComponent<LineRendererXD>();
-        _canvas = GameObject.FindGameObjectWithTag("CanvasUI");
-        _menuUI = _canvas.GetComponent<MenuAndUIScript>();
+    public bool LevelLoaded
+    {
+        get { return levelLoaded; }
+        private set { levelLoaded = value; }
+    }
+    #endregion
 
-
-        startPos = rocketShip.transform.position;
-        previousPos = new Vector3(0.0f, 0.0f, 0.0f);
-
-        frames = 0;
+    #region Unity Functions
+    private void Awake()
+    {
+        winTriggerObj = GameObject.FindGameObjectWithTag("WinBox");
+        rocketShipObj = GameObject.FindGameObjectWithTag("Player");
+        settingsObj = GameObject.FindGameObjectWithTag("PersistSettings");
+        cometObj = GameObject.FindGameObjectWithTag("Comet");
+        if (settingsObj != null)
+        {
+            saveManagerScript = settingsObj.GetComponent<SaveManager>();
+            currentLevel = saveManagerScript.GetHighestLevelInPlayerPrefs();
+        }
+        winTriggerObj.transform.position = new Vector3(0.0f, 95.0f, 0.0f);
+        loadedPlanetObjs = new GameObject[10];
     }
 
     public void Update()
     {
-        // Try and make the planets consistantly spawn based on the player position
-        // if statement for if their are less than the correct amount on the map
-        // continue spawning the planets while the player is moving and change the spawn point 
-
-        frames++;
-
-        planet = GameObject.FindGameObjectsWithTag("Orbs");
-        amountPlanets = planet.Length;
-        currentPos = rocketShip.transform.position;
-
-        if (frames % 5 == 0)
+        if (!levelLoaded && PlanetSmallPrefab != null && PlanetMediumPrefab != null && PlanetLargePrefab != null)
         {
-            if (_menuUI.currentScene.buildIndex == 2 || _menuUI.currentScene.buildIndex == 3)
-            {
-                if (currentPos != previousPos && _menuUI.cameraScript.isLaunched)
-                {
-                    Vector2 tempPos;
-                    planetSpawnPoint = findCentrePoint(currentPos, previousPos);
-
-                    tempPos = (new Vector2(planetSpawnPoint.x, planetSpawnPoint.y) + Random.insideUnitCircle * 200);
-                    if (checkSpawn(tempPos) == true)
-                    {
-                        SpawnPlanet(Random.Range(0, 3), tempPos, new Quaternion(0, 0, 0, 0));
-                    }
-
-                }
-                destroyPlanets(false);
-                previousPos = currentPos;
-            }
+            LoadLevel(currentLevel);
         }
     }
+    #endregion
 
-    #region Find Spawn Point
-
+    #region Methods
     /// <summary>
-    /// 
+    /// Loads the level defined by the passed int
     /// </summary>
-    /// <param name="cPos"></param>
-    /// <param name="pPos"></param>
-    /// <returns></returns>
-
-    public Vector2 findCentrePoint(Vector3 cPos, Vector3 pPos)
+    /// <param name="x">The level to be loaded</param>
+    private void LoadLevel(int x)
     {
-        Vector2 shipDirection = cPos - pPos;
-
-        Vector2 finaldirection = shipDirection + (shipDirection.normalized * 350);
-
-        Vector2 targetPos = new Vector2(pPos.x, pPos.y) + finaldirection;
-
-        return targetPos;
-    }
-
-    #endregion
-
-    #region Destroy Planets
-
-    public void destroyPlanets(bool b)
-    {
-        playerPos = rocketShip.transform.position;
-        planet = GameObject.FindGameObjectsWithTag("Orbs");
-
-        if (b == true)
-        {
-            foreach(GameObject _planet in planet)
-            {
-                Destroy(_planet);
-            }
-        }
-        else if(b == false)
-        {
-            foreach (GameObject _planet in planet)
-            {
-                if ((playerPos.y - 250) > _planet.transform.position.y)
-                {
-                    Destroy(_planet);
-                }
-            }
-        }
-    }
-
-    #endregion
-
-    #region Spawn Planets
-
-    /// <summary>
-    /// Method that takes a planet type, spawn location and it's rotation
-    /// </summary>
-    /// <param name="_size"></param>
-    /// <param name="_location"></param>
-    /// <param name="rotation"></param>
-
-    public void SpawnPlanet(int _size, Vector3 _location, Quaternion rotation)
-    {
-        switch (_size)
-        {
-            case 0:
-                Instantiate(Resources.Load("Planet S"), _location, rotation);
-                break;
-            case 1:
-                Instantiate(Resources.Load("Planet M"), _location, rotation);
-                break;
-            case 2:
-                Instantiate(Resources.Load("Planet L"), _location, rotation);
-                break;
-            case 5:
-                Instantiate(Resources.Load("DebugSpriteS"), _location, rotation);
-                break;
-            case 6:
-                Instantiate(Resources.Load("DebugSpriteM"), _location, rotation);
-                break;
-            case 7:
-                Instantiate(Resources.Load("DebugSpriteL"), _location, rotation);
-                break;
-            default:
-                Instantiate(Resources.Load("PlanetS"), _location, rotation);
-                break;
-        }
-    }
-
-    #endregion
-
-    #region Check Spawn
-
-    /// <summary>
-    /// Checks the spawn location for planets so it can check if it's spawning correctly
-    /// </summary>
-    /// <returns></returns>
-    /// 
-
-    public bool checkSpawn(Vector3 planetLoc)
-    {
-        planet = GameObject.FindGameObjectsWithTag("Orbs");
-
-        foreach (GameObject _planet in planet)
-        {
-            int magni = Mathf.RoundToInt(Vector3.Distance(planetLoc, _planet.transform.position));
-            
-            if (magni <= 7 && magni >= 0)
-            {
-                return false;
-            }
-        }
-        
-        return true;
-    }
-
-    #endregion
-
-    #region Load Endless
-
-    public void LoadLevel(float spawnLoc, bool fPlanet)
-    {
-        int aOP = 175;
-
-
-        if (fPlanet == true)
-            SpawnPlanet(0, new Vector3(0, 13, 0), new Quaternion(0, 0, 0, 0));
-
-
-        for (int x = 0; x < aOP; x++)
-        {
-            Vector3 vector3;
-            do
-            {
-                vector3 = (new Vector2(0, spawnLoc) + Random.insideUnitCircle * 200);
-            } while (checkSpawn(vector3) == false);
-
-            SpawnPlanet(Random.Range(0, 3), vector3, new Quaternion(0, 0, 0, 0));
-        }
-    }
-
-    #endregion
-
-    #region Load Story
-
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="x"></param>
-
-    public void loadLevel(int x)
-    {
-
+        Debug.Log("Level:" + currentLevel);
+        cometObj.GetComponent<CometHandler>().RandomizeCometDirectionAndSpeed();
         switch (x)
         {
-            case 0:     // Spawn Level 1
+            case 0:
+                // --- Planets ---
+                loadedPlanetObjs[0] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 50.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
 
-                //int amountPlanets = 200;
+                levelLoaded = true;
+                break;
+            case 1:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 55.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
 
-                //SpawnPlanet(0, new Vector3(0, 13, 0), new Quaternion(0, 0, 0, 0));
+                levelLoaded = true;
+                break;
+            case 2:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetSmallPrefab, new Vector3(2.5f, 30.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetSmallPrefab, new Vector3(-2.5f, 30.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
 
-                //for (x = 0; x < amountPlanets; x++)
-                //{
-                //    Vector3 vector3;
+                levelLoaded = true;
+                break;
+            case 3:
+                //---Planets---
+                loadedPlanetObjs[1] = Instantiate(PlanetSmallPrefab, new Vector3(2.5f, 55.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetSmallPrefab, new Vector3(-5.0f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
 
-                //    do
-                //    {
-                //        vector3 = (new Vector2(0, 213) + Random.insideUnitCircle * 200);
-                //    } while (checkSpawn(vector3) == false);
+                levelLoaded = true;
+                break;
+            case 4:
+                //---Planets---
+                loadedPlanetObjs[1] = Instantiate(PlanetSmallPrefab, new Vector3(-2.5f, 30.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetSmallPrefab, new Vector3(2.5f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
 
-                //    SpawnPlanet(Random.Range(0, 3), vector3, new Quaternion(0, 0, 0, 0));
-                //}
+
+                levelLoaded = true;
+                break;
+            case 5:
+                //---Planets---
+                loadedPlanetObjs[1] = Instantiate(PlanetSmallPrefab, new Vector3(-2.5f, 45.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetSmallPrefab, new Vector3(5.0f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
 
 
-                //#region Old Level 1
-                //Debug.Log("Level 1");
+                levelLoaded = true;
+                break;
+            case 6:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 65.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetSmallPrefab, new Vector3(-10.0f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetSmallPrefab, new Vector3(10.0f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
 
-                //// --- Planets ---
-                //planet[0] = new PlanetScript(0, new Vector3(0.0f, 5.0f, 0.0f));
-                //planet[1] = new PlanetScript(1, new Vector3(0.0f, 7.0f, 0.0f));
-                //planet[2] = new PlanetScript(1, new Vector3(0.0f, 7.0f, 0.0f));
+                levelLoaded = true;
+                break;
+            case 7:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 45.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetSmallPrefab, new Vector3(-10.0f, 65.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetSmallPrefab, new Vector3(10.0f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
 
-                //// --- Win Point ---
-                //wintrigger.transform.position = new Vector3(0.0f, 14.7f, 0.0f);
-                //exitSign.transform.position = new Vector3(0.0f, 14.6f, 0.0f);
+                levelLoaded = true;
+                break;
+            case 8:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetSmallPrefab, new Vector3(-10.0f, 45.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 65.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetSmallPrefab, new Vector3(10.0f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
 
-                //// --- Line Renderer ---
-                //_line.enableLine = true;
+                levelLoaded = true;
+                break;
+            case 9:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetSmallPrefab, new Vector3(-5.0f, 65.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 45.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetSmallPrefab, new Vector3(5.0f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
 
-                //_menuUI.hideMenu();
+                levelLoaded = true;
+                break;
+            case 10:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(0.0f, 35.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 11:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetSmallPrefab, new Vector3(0f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(0.0f, 45.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 12:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetSmallPrefab, new Vector3(2.5f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(-2.5f, 45.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 13:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetSmallPrefab, new Vector3(6.0f, 50.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(-2.5f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 14:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetSmallPrefab, new Vector3(-6.0f, 50.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetSmallPrefab, new Vector3(6.0f, 50.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetMediumPrefab, new Vector3(0.0f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 15:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetSmallPrefab, new Vector3(-6.0f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetSmallPrefab, new Vector3(6.0f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetMediumPrefab, new Vector3(0.0f, 40.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 16:
+                // --- Planets ---
+                loadedPlanetObjs[0] = Instantiate(PlanetSmallPrefab, new Vector3(-6.0f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetSmallPrefab, new Vector3(6.0f, 55.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetMediumPrefab, new Vector3(0.0f, 37.5f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 17:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetSmallPrefab, new Vector3(-6.0f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetSmallPrefab, new Vector3(6.0f, 55.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetMediumPrefab, new Vector3(0.0f, 37.5f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 18:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(0.0f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 55.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 37.5f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 19:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(0.0f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 55.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 37.5f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 20:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(0.0f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(0.0f, 55.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 21:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(-5.0f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(5.0f, 65.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 22:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(-2.5f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(10.0f, 65.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 23:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(7.5f, 40.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(-7.5f, 40.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 24:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(7.5f, 40.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(-7.5f, 40.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 20.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 25:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(7.5f, 35.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(-7.5f, 60.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 20.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 26:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(-5.0f, 35.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(0.0f, 60.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetSmallPrefab, new Vector3(5.0f, 35.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 27:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(-5.0f, 30.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(5.0f, 40.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 50.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 28:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(-5.0f, 30.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(5.0f, 40.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 50.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 29:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(10.0f, 50.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(-10.0f, 50.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 70.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 30:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(10.0f, 50.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(-10.0f, 50.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[3] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 35.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 31:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(5.0f, 55.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(-5.0f, 45.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetSmallPrefab, new Vector3(-5.0f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[3] = Instantiate(PlanetSmallPrefab, new Vector3(5.0f, 35.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 32:
+                // --- Planets ---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(15.0f, 45.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(-15.0f, 45.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[3] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 65.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 33:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(15.0f, 60.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(-15.0f, 60.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetSmallPrefab, new Vector3(5.0f, 30.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[3] = Instantiate(PlanetSmallPrefab, new Vector3(-5.0f, 30.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 34:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(0.0f, 75.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(0.0f, 60.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetSmallPrefab, new Vector3(5.0f, 30.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[3] = Instantiate(PlanetSmallPrefab, new Vector3(-5.0f, 30.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 35:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(0.0f, 75.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(0.0f, 55.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 40.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[3] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 20.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 36:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(0.0f, 75.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(0.0f, 55.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetSmallPrefab, new Vector3(-15.0f, 30.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[3] = Instantiate(PlanetSmallPrefab, new Vector3(15.0f, 30.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 37:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(10.0f, 55.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(-10.0f, 55.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 50.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[3] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 60.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 38:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(-7.5f, 40.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(7.5f, 40.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 75.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[3] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 65.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 39:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(-7.5f, 30.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(7.5f, 40.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetSmallPrefab, new Vector3(7.5f, 65.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[3] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 50.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 40:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(-7.5f, 30.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(7.5f, 40.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetMediumPrefab, new Vector3(7.5f, 40.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[3] = Instantiate(PlanetSmallPrefab, new Vector3(7.5f, 65.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[4] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 50.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 41:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(0f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(7.5f, 40.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetMediumPrefab, new Vector3(7.5f, 40.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[3] = Instantiate(PlanetSmallPrefab, new Vector3(0f, 65.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[4] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 50.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 42:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(-2.5f, 30.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(2.5f, 30.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetMediumPrefab, new Vector3(7.5f, 50.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[3] = Instantiate(PlanetMediumPrefab, new Vector3(7.5f, 50.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[4] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 50.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 43:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(-7.5f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(7.5f, 35.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetMediumPrefab, new Vector3(7.5f, 45.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[3] = Instantiate(PlanetSmallPrefab, new Vector3(7.5f, 65.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[4] = Instantiate(PlanetSmallPrefab, new Vector3(7.05f, 55.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 44:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(10.0f, 30.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(5.0f, 40.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetMediumPrefab, new Vector3(-7.5f, 40.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[3] = Instantiate(PlanetSmallPrefab, new Vector3(-10.0f, 65.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[4] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 50.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 45:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(-2.5f, 30.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(2.5f, 30.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetMediumPrefab, new Vector3(0.0f, 75.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[3] = Instantiate(PlanetSmallPrefab, new Vector3(10.0f, 40.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[4] = Instantiate(PlanetSmallPrefab, new Vector3(-10.0f, 40.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 46:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(-7.5f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(2.5f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetMediumPrefab, new Vector3(-7.5f, 40.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[3] = Instantiate(PlanetSmallPrefab, new Vector3(10.0f, 50.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[4] = Instantiate(PlanetSmallPrefab, new Vector3(10.0f, 60.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 47:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(0.0f, 30.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(7.5f, 45.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetMediumPrefab, new Vector3(-7.5f, 45.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[3] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 65.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[4] = Instantiate(PlanetSmallPrefab, new Vector3(0.0f, 50.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 48:
+                // --- Planets ---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(-6.0f, 30.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(-9.0f, 50.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetMediumPrefab, new Vector3(-5.0f, 20.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[3] = Instantiate(PlanetSmallPrefab, new Vector3(9.0f, 70.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[4] = Instantiate(PlanetSmallPrefab, new Vector3(5.0f, 80.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 49:
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetMediumPrefab, new Vector3(-8.5f, 30.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(-1.5f, 85.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[2] = Instantiate(PlanetMediumPrefab, new Vector3(7.5f, 30.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[3] = Instantiate(PlanetSmallPrefab, new Vector3(5.5f, 75.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[4] = Instantiate(PlanetSmallPrefab, new Vector3(-6.0f, 60.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
+            case 50: // Large from here!
+                //---Planets---
+
+                levelLoaded = true;
+                break;
+            case 51:
+                //---Planets---
+
+                levelLoaded = true;
+                break;
+            case 52:
+                //---Planets---
+
+                levelLoaded = true;
+                break;
+            case 53:
+                //---Planets---
+
+                levelLoaded = true;
+                break;
+            case 54:
+                //---Planets---
+
+                levelLoaded = true;
+                break;
+            case 55:
+                //---Planets---
+
+                levelLoaded = true;
+                break;
+            case 56:
+                //---Planets---
+
+                levelLoaded = true;
+                break;
+            case 57:
+                //---Planets---
+
+                levelLoaded = true;
+                break;
+            case 58:
+                //---Planets---
+
+                levelLoaded = true;
+                break;
+            case 59:
+                //---Planets---
+
+                levelLoaded = true;
+                break;
+            case 60:
+                //---Planets---
+
+                levelLoaded = true;
+                break;
+            case 61:
+                //---Planets---
+
+                levelLoaded = true;
 
                 break;
-                #region Temp
-                /*   case 1:     // Spawn Level 2
-                       Debug.Log("Level 2");
+            case 62:
+                //---Planets---
 
-                       // --- Planets ---
-                       planet[0] = new PlanetScript(1, new Vector3(0.0f, 15.0f, 0.0f));
-                       planet[1] = new PlanetScript(6, new Vector3(0.0f, 15.0f, 0.0f));
+                levelLoaded = true;
+                break;
+            case 63:
+                //---Planets---
 
-                       // --- Win Point ---
-                       wintrigger.transform.position = new Vector3(0.0f, 33.875f, 0.0f);
-                       exitSign.transform.position = new Vector3(0.0f, 31.875f, 0.0f);
+                levelLoaded = true;
+                break;
+            case 64:
+                // --- Planets ---
 
-                       _menuUI.hideMenu();
-                       break;
-                   case 2:     // Spawn Level 3
-                       Debug.Log("Level 3");
+                levelLoaded = true;
+                break;
+            case 65:
+                //---Planets---
 
-                       // --- Planets ---
-                       planet[0] = new PlanetScript(2, new Vector3(0.0f, 15.0f, 0.0f));
-                       planet[1] = new PlanetScript(7, new Vector3(0.0f, 15.0f, 0.0f));
+                levelLoaded = true;
+                break;
+            case 66:
+                //---Planets---
 
-                       // --- Win Point ---
-                       wintrigger.transform.position = new Vector3(0.0f, 33.875f, 0.0f);
-                       exitSign.transform.position = new Vector3(0.0f, 31.875f, 0.0f);
+                levelLoaded = true;
+                break;
+            case 67:
+                //---Planets---
 
-                       _menuUI.hideMenu();
-                       break;
-                   case 3:     // Spawn Level 4
-                       Debug.Log("Level 4");
+                levelLoaded = true;
+                break;
+            case 68:
+                //---Planets---
 
-                       // --- Planets ---
-                       planet[0] = new PlanetScript(0, new Vector3(0.0f, 15.0f, 0.0f));
-                       planet[1] = new PlanetScript(0, new Vector3(10.0f, 25.0f, 0.0f));
-                       planet[2] = new PlanetScript(0, new Vector3(-10.0f, 5.0f, 0.0f));
+                levelLoaded = true;
+                break;
+            case 69:
+                //---Planets---
 
-                       // --- Win Point ---
-                       wintrigger.transform.position = new Vector3(0.0f, 33.875f, 0.0f);
-                       exitSign.transform.position = new Vector3(0.0f, 31.875f, 0.0f);
+                levelLoaded = true;
+                break;
+            case 70:
+                //---Planets---
 
-                       _menuUI.hideMenu();
-                       break;
-                   case 4:     // Spawn Level 5
-                       Debug.Log("Level 5");
+                levelLoaded = true;
+                break;
+            case 71:
+                //---Planets---
 
-                       // --- Planets ---
-                       planet[0] = new PlanetScript(0, new Vector3(-10.0f, 10.0f, 0.0f));
-                       planet[1] = new PlanetScript(0, new Vector3(10.0f, 10.0f, 0.0f));
-                       planet[2] = new PlanetScript(0, new Vector3(-20.0f, 25.0f, 0.0f));
-                       planet[3] = new PlanetScript(0, new Vector3(20.0f, 25.0f, 0.0f));
+                levelLoaded = true;
+                break;
+            case 72:
+                //---Planets---
 
-                       // --- Win Point ---
-                       wintrigger.transform.position = new Vector3(0.0f, 33.875f, 0.0f);
-                       exitSign.transform.position = new Vector3(0.0f, 31.875f, 0.0f);
+                levelLoaded = true;
+                break;
+            case 73:
+                //---Planets---
 
-                       _menuUI.hideMenu();
-                       break;
-                   case 5:     // Spawn Level 6
-                       Debug.Log("Level 6");
+                levelLoaded = true;
+                break;
+            case 74:
+                //---Planets---
 
-                       // --- Planets ---
-                       planet[0] = new PlanetScript(0, new Vector3(0.0f, 15.0f, 0.0f));
-                       planet[1] = new PlanetScript(0, new Vector3(10.0f, 25.0f, 0.0f));
-                       planet[2] = new PlanetScript(0, new Vector3(-10.0f, 5.0f, 0.0f));
+                levelLoaded = true;
+                break;
+            case 75:
+                //---Planets---
 
-                       // --- Win Point ---
-                       wintrigger.transform.position = new Vector3(0.0f, 33.875f, 0.0f);
-                       exitSign.transform.position = new Vector3(0.0f, 31.875f, 0.0f);
+                levelLoaded = true;
 
-                       _menuUI.hideMenu();
-                       break;
-                   case 6:     // Spawn Level 7
-                       Debug.Log("Level 7");
+                break;
+            case 76:
+                //---Planets---
 
-                       // --- Planets ---
-                       planet[0] = new PlanetScript(0, new Vector3(0.0f, 15.0f, 0.0f));
-                       planet[1] = new PlanetScript(0, new Vector3(10.0f, 25.0f, 0.0f));
-                       planet[2] = new PlanetScript(0, new Vector3(-10.0f, 5.0f, 0.0f));
+                levelLoaded = true;
 
-                       // --- Win Point ---
-                       wintrigger.transform.position = new Vector3(0.0f, 33.875f, 0.0f);
-                       exitSign.transform.position = new Vector3(0.0f, 31.875f, 0.0f);
+                break;
+            case 77:
+                //---Planets---
 
-                       _menuUI.hideMenu();
-                       break;
-                   case 7:     // Spawn Level 8
-                       Debug.Log("Level 8");
+                levelLoaded = true;
 
-                       // --- Planets ---
-                       planet[0] = new PlanetScript(0, new Vector3(0.0f, 15.0f, 0.0f));
-                       planet[1] = new PlanetScript(0, new Vector3(10.0f, 25.0f, 0.0f));
-                       planet[2] = new PlanetScript(0, new Vector3(-10.0f, 5.0f, 0.0f));
+                break;
+            case 78:
+                //---Planets---
 
-                       // --- Win Point ---
-                       wintrigger.transform.position = new Vector3(0.0f, 33.875f, 0.0f);
-                       exitSign.transform.position = new Vector3(0.0f, 31.875f, 0.0f);
+                levelLoaded = true;
+                break;
+            case 79:
+                //---Planets---
 
-                       _menuUI.hideMenu();
-                       break;
-                   case 8:     // Spawn Level 9
-                       Debug.Log("Level 9");
+                levelLoaded = true;
+                break;
+            case 80:
+                // --- Planets ---
 
-                       // --- Planets ---
-                       planet[0] = new PlanetScript(0, new Vector3(0.0f, 15.0f, 0.0f));
-                       planet[1] = new PlanetScript(0, new Vector3(10.0f, 25.0f, 0.0f));
-                       planet[2] = new PlanetScript(0, new Vector3(-10.0f, 5.0f, 0.0f));
+                levelLoaded = true;
+                break;
+            case 81:
+                //---Planets---
 
-                       // --- Win Point ---
-                       wintrigger.transform.position = new Vector3(0.0f, 33.875f, 0.0f);
-                       exitSign.transform.position = new Vector3(0.0f, 31.875f, 0.0f);
+                levelLoaded = true;
+                break;
+            case 82:
+                //---Planets---
 
-                       _menuUI.hideMenu();
-                       break;
-                   case 9:     // Spawn Level 10
-                       Debug.Log("Level 10");
+                levelLoaded = true;
+                break;
+            case 83:
+                //---Planets---
 
-                       // --- Planets ---
-                       planet[0] = new PlanetScript(0, new Vector3(0.0f, 15.0f, 0.0f));
-                       planet[1] = new PlanetScript(0, new Vector3(10.0f, 25.0f, 0.0f));
-                       planet[2] = new PlanetScript(0, new Vector3(-10.0f, 5.0f, 0.0f));
+                levelLoaded = true;
+                break;
+            case 84:
+                //---Planets---
 
-                       // --- Win Point ---
-                       wintrigger.transform.position = new Vector3(0.0f, 33.875f, 0.0f);
-                       exitSign.transform.position = new Vector3(0.0f, 31.875f, 0.0f);
+                levelLoaded = true;
+                break;
+            case 85:
+                //---Planets---
 
-                       _menuUI.hideMenu();
-                       break;
-                   case 10:     // Spawn Level 11
-                       Debug.Log("Level 11");
+                levelLoaded = true;
+                break;
+            case 86:
+                //---Planets---
 
-                       // --- Planets ---
-                       planet[0] = new PlanetScript(0, new Vector3(0.0f, 15.0f, 0.0f));
-                       planet[1] = new PlanetScript(0, new Vector3(10.0f, 25.0f, 0.0f));
-                       planet[2] = new PlanetScript(0, new Vector3(-10.0f, 5.0f, 0.0f));
+                levelLoaded = true;
+                break;
+            case 87:
+                //---Planets---
 
-                       // --- Win Point ---
-                       wintrigger.transform.position = new Vector3(0.0f, 33.875f, 0.0f);
-                       exitSign.transform.position = new Vector3(0.0f, 31.875f, 0.0f);
+                levelLoaded = true;
+                break;
+            case 88:
+                //---Planets---
 
-                       _menuUI.hideMenu();
-                       break;
-                   case 11:     // Spawn Level 12
-                       Debug.Log("Level 12");
+                levelLoaded = true;
+                break;
+            case 89:
+                //---Planets---
 
-                       // --- Planets ---
-                       planet[0] = new PlanetScript(0, new Vector3(0.0f, 15.0f, 0.0f));
-                       planet[1] = new PlanetScript(0, new Vector3(10.0f, 25.0f, 0.0f));
-                       planet[2] = new PlanetScript(0, new Vector3(-10.0f, 5.0f, 0.0f));
+                levelLoaded = true;
+                break;
+            case 90:
+                //---Planets---
 
-                       // --- Win Point ---
-                       wintrigger.transform.position = new Vector3(0.0f, 33.875f, 0.0f);
-                       exitSign.transform.position = new Vector3(0.0f, 31.875f, 0.0f);
+                levelLoaded = true;
+                break;
+            case 91:
+                //---Planets---
 
-                       _menuUI.hideMenu();
-                       break;
-                   case 12:     // Spawn Level 13
-                       Debug.Log("Level 1");
+                levelLoaded = true;
 
-                       // --- Planets ---
-                       planet[0] = new PlanetScript(0, new Vector3(0.0f, 5.0f, 0.0f));
-                       planet[1] = new PlanetScript(1, new Vector3(0.0f, 7.0f, 0.0f));
-                       planet[2] = new PlanetScript(1, new Vector3(0.0f, 7.0f, 0.0f));
+                break;
+            case 92:
+                //---Planets---
 
-                       // --- Win Point ---
-                       wintrigger.transform.position = new Vector3(0.0f, 14.7f, 0.0f);
-                       exitSign.transform.position = new Vector3(0.0f, 14.6f, 0.0f);
+                levelLoaded = true;
 
-                       // --- Line Renderer ---
-                       _line.enableLine = true;
+                break;
+            case 93:
+                //---Planets---
 
-                       _menuUI.hideMenu();
-                       break;
-                   case 13:     // Spawn Level 14
-                       Debug.Log("Level 1");
+                levelLoaded = true;
 
-                       // --- Planets ---
-                       planet[0] = new PlanetScript(0, new Vector3(0.0f, 5.0f, 0.0f));
-                       planet[1] = new PlanetScript(1, new Vector3(0.0f, 7.0f, 0.0f));
-                       planet[2] = new PlanetScript(1, new Vector3(0.0f, 7.0f, 0.0f));
+                break;
+            case 94:
+                //---Planets---
 
-                       // --- Win Point ---
-                       wintrigger.transform.position = new Vector3(0.0f, 14.7f, 0.0f);
-                       exitSign.transform.position = new Vector3(0.0f, 14.6f, 0.0f);
+                levelLoaded = true;
+                break;
+            case 95:
+                //---Planets---
 
-                       // --- Line Renderer ---
-                       _line.enableLine = true;
+                levelLoaded = true;
+                break;
+            case 96:
+                //---Planets---
 
-                       _menuUI.hideMenu();
-                       break;
-                   case 14:     // Spawn Level 15
-                       Debug.Log("Level 1");
+                levelLoaded = true;
+                break;
+            case 97:
+                //---Planets---
 
-                       // --- Planets ---
-                       planet[0] = new PlanetScript(0, new Vector3(0.0f, 5.0f, 0.0f));
-                       planet[1] = new PlanetScript(1, new Vector3(0.0f, 7.0f, 0.0f));
-                       planet[2] = new PlanetScript(1, new Vector3(0.0f, 7.0f, 0.0f));
+                levelLoaded = true;
 
-                       // --- Win Point ---
-                       wintrigger.transform.position = new Vector3(0.0f, 14.7f, 0.0f);
-                       exitSign.transform.position = new Vector3(0.0f, 14.6f, 0.0f);
+                break;
+            case 98:
+                //---Planets---
 
-                       // --- Line Renderer ---
-                       _line.enableLine = true;
+                levelLoaded = true;
 
-                       _menuUI.hideMenu();
-                       break;
-                   default:
-                       break;*/
-                #endregion
+                break;
+            case 99:
+                //---Planets---
+
+                levelLoaded = true;
+
+                break;
+            default:
+                Debug.Log("Loaded Default");
+
+                //---Planets---
+                loadedPlanetObjs[0] = Instantiate(PlanetSmallPrefab, new Vector3(10.0f, 75.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+                loadedPlanetObjs[1] = Instantiate(PlanetMediumPrefab, new Vector3(-10.0f, 25.0f, 0.0f), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
+
+                levelLoaded = true;
+                break;
         }
     }
 
-    #endregion
+    /// <summary>
+    /// Loads the next level by incrementing the currentLevel and reseting bools
+    /// </summary>
+    public void LoadNextLevel()
+    {
+        rocketShipObj.GetComponent<ShipControlsScript>().ResetShipToStart();
+        rocketShipObj.GetComponent<PreviousPathHandler>().ClearMarkers();
+        DestroyPlanets();
+        currentLevel++;
+        if (settingsObj != null && currentLevel > saveManagerScript.GetHighestLevelInPlayerPrefs())
+        {
+            saveManagerScript.SetHighestLevelInPlayerPrefs(currentLevel);
+        }
+        levelLoaded = false;
+    }
 
+    /// <summary>
+    /// Loads the next level by incrementing the currentLevel and reseting bools
+    /// </summary>
+    public void LoadSpecificLevel(int level)
+    {
+        rocketShipObj.GetComponent<ShipControlsScript>().ResetShipToStart();
+        rocketShipObj.GetComponent<PreviousPathHandler>().ClearMarkers();
+        DestroyPlanets();
+        currentLevel = level;
+        levelLoaded = false;
+    }
+
+    /// <summary>
+    /// Reloads the current level
+    /// </summary>
+    public void ReloadLevel()
+    {
+        rocketShipObj.GetComponent<ShipControlsScript>().ResetShipToStart();
+        DestroyPlanets();
+        levelLoaded = false;
+    }
+
+    /// <summary>
+    /// Destroys all the loaded planets, used for reseting or loading a new level
+    /// </summary>
+    private void DestroyPlanets()
+    {
+        if (loadedPlanetObjs.GetValue(0) != null)
+        {
+            foreach (GameObject planet in loadedPlanetObjs)
+            {
+                Destroy(planet);
+            }
+        }
+    }
+    #endregion
 }
